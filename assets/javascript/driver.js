@@ -1,6 +1,6 @@
 /********************************************************************************
  * @author Steve Lucas
- * @version 11/27/18
+ * @version 1.0.1 11/30/2018
  * Handles event listeners on HTML pages and drives all functionality
  *******************************************************************************/
 
@@ -11,7 +11,6 @@ $("#adv-search-form").hide();
 var flagAdvancedSearch = false;
 
 function search() {
-  event.preventDefault();
 
   // removes 'invalid' class from any form elements
   // ('invalid' will be added again if it input is invalid)
@@ -49,8 +48,8 @@ $(document).ready(function() {
   //user's last saved input is populated to search box for user convenience
   $("#search-input").text(sessionStorage.getItem("address"));
 
-  $("#search-btn").on("click", function() {
-    event.preventDefault();
+  $("#search-btn").on("click", function(event) {
+    event.preventDefault(event);
     search();
   });
 
@@ -58,8 +57,8 @@ $(document).ready(function() {
    * on click, displays the advanced search form if it is hidden,
    * and hides it if it is showing.
    */
-  $("#adv-search-drop").on("click", function() {
-    event.preventDefault();
+  $("#adv-search-drop").on("click", function(event) {
+    event.preventDefault(event);
     if (!flagAdvancedSearch) {
       flagAdvancedSearch = true;
       console.log(flagAdvancedSearch);
